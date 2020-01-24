@@ -3,6 +3,11 @@ Your function should take in a single parameter (a string `word`)
 Your function should return a count of how many occurences of ***"th"*** occur within `word`. Case matters.
 Your function must utilize recursion. It cannot contain any loops.
 
+check index 0 and 1
+if == "th" return 1 else return 0
+check index 1 and 2
+...
+
 '''
 def count_th(word):
     

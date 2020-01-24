@@ -95,15 +95,68 @@ class SortingRobot:
     def sort(self):
         """
         Sort the robot's list.
+
+        find the smallest number, 
+        if not in index_0
+            swap with index_0
+
+        find the smallest number from index_1
+        compare it with the number in Robot
+        if the number in Robot <= the smallest number in the list
+            place the number in index_1, and get the card in index_2
+        else swap
+        ...
+        
+
+
         """
         # Fill this out
-        pass
+        # find the smallest number
+        start_position = 0
+        while start_position < len(self._list):
+            if self._list[start_position] is None:
+                self.swap_item()
+            smallest_num = self._list[start_position]
+            
+            # print(smallest_num)
+            # print("item", self._item)
+            # print(self._list)
+            
+            smallest_num_index = start_position
+            
+            for i in range(start_position, len(self._list)):
+                
+                if self._list[i] != None and self._list[i] < smallest_num:
+                    smallest_num = self._list[i]
+                    smallest_num_index = i
+            if self._item is None and smallest_num_index == start_position:
+                self.move_right()
+                start_position += 1
+            elif self._item is not None and self._item <= smallest_num:
+                self.swap_item()
+                self.move_right()
+                start_position += 1
+            else:
+                while self._position != smallest_num_index:
+                    self.move_right()
+                    # print("index", smallest_num_index)
+                    # print("find smallest position", self._position)
+                self.swap_item()
+                while self._position != start_position:
+                    self.move_left()
+                self.swap_item()
+                self.move_right()
+                start_position +=1
+            # print("smallest num",smallest_num)
+            # print("index",smallest_num_index)
+            # print("position", self._position)
+            # print("-----------")
 
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
-
+    
     l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)
