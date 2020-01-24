@@ -39,7 +39,10 @@ This is s recursive function. It will run the function (bunnies) times, so it is
 ## Exercise II
 
 I am going to use binary search in this quesiton 
-
+if n = 0
+    return 0
+highest = n
+lowest = 0
 when highest - lowest ==0
     return the number
 find the middle heigh
