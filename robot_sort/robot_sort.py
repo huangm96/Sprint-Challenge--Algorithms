@@ -117,18 +117,14 @@ class SortingRobot:
             if self._list[start_position] is None:
                 self.swap_item()
             smallest_num = self._list[start_position]
-            
-            # print(smallest_num)
-            # print("item", self._item)
-            # print(self._list)
-            
             smallest_num_index = start_position
-            
+            #find the smallest num from the start position
             for i in range(start_position, len(self._list)):
                 
                 if self._list[i] != None and self._list[i] < smallest_num:
                     smallest_num = self._list[i]
                     smallest_num_index = i
+            
             if self._item is None and smallest_num_index == start_position:
                 self.move_right()
                 start_position += 1
@@ -137,20 +133,19 @@ class SortingRobot:
                 self.move_right()
                 start_position += 1
             else:
+                # go to the smallest_index positon
                 while self._position != smallest_num_index:
                     self.move_right()
-                    # print("index", smallest_num_index)
-                    # print("find smallest position", self._position)
+
                 self.swap_item()
+                # go back to the start positon
                 while self._position != start_position:
                     self.move_left()
                 self.swap_item()
+                # move to the next position
                 self.move_right()
                 start_position +=1
-            # print("smallest num",smallest_num)
-            # print("index",smallest_num_index)
-            # print("position", self._position)
-            # print("-----------")
+
 
 
 if __name__ == "__main__":
