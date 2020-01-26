@@ -25,7 +25,7 @@ b)
         j *= 2
         sum += 1
 There are two loop: one is looped n time, the other is looped 1/2n time
-so it is O(n*1/2n) ~= O(n^2)
+so it is O(n*1/2n) ~= O(nlog(n))
 
 c)
 ------O(n) 
@@ -52,3 +52,5 @@ find the middle heigh
     if OK:
         lowest == middle height
         repeat the function
+
+O(logn)
